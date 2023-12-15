@@ -1,27 +1,25 @@
 import java.util.Scanner;
-import java.util.scanner ;
-import java.util.reges.matcher;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.sound.sampled.SourceDataLine;
- 
-public class EmailValidator{
-    Scanner scanner=new scanner(system.in );
-    System.out.print("Enter an Emailaddresss");
-    String Email=Scanner.Nextline ();
-    if(isvalidemail(email)){
-       System.out.print("Valid Emailaddresss");
- 
-    }
-    else {System.out.print("inValid Emailaddresss");
+public class EmailValidator {
 
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an email address: ");
+        String email = scanner.nextLine();
 
+        if (isValidEmail(email)) {
+            System.out.println("Valid Email Id");
+        } else {
+            System.out.println("Invalid Email Id");
+        }
     }
-     private static boolean isvalidemail(stringemail){
-        Stringemailregex=[a,s,d,f,g,h,j,k,l,q,w,e,r,t,y,u,i,o,p,z,x,c,v,bn,m]+[!,@<#,$,%,];
-        Pattern pattern=Patterncompile(Emailregex);
-        Matcher matcher=Patternmatcher(Email);
-        Return matcher.matches();
-     }
-     }
+
+    private static boolean isValidEmail(String email) {
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+}
